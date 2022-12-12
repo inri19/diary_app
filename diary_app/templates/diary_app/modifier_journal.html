@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<br><br><br><br>
+
+<div class="container">
+    <div class="card text-bg-light mb-3">
+        <div class="card-header"><h3>Mon Journal</h3></div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    <div class="card text-bg-light" style="margin-left:auto; margin-right:auto;">
+
+        <div class="card-body">
+
+            <form method="post">
+                {% csrf_token %}
+
+                <label for="titre" class="form-label">Titre</label>
+                <input type="text" class="form-control" id="titre" placeholder="Titre" style="max-width: 300px;" name="titre" value="{{ journal.titre }}">
+
+                <br>
+
+                <label for="contenu" class="form-label">Texte</label>
+                <textarea class="form-control" id="contenu" rows="3" name="contenu">{{ journal.contenu }}</textarea>
+
+                <br><br>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-warning" style="max-width: 300px;">Modifier</button>
+                </div>
+
+                <br>
+
+            </form>
+
+        </div>
+
+    </div>    
+
+</div>
+
+{% endblock %}

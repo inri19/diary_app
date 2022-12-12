@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ journal.titre }}{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="card text-bg-light mb-3">
+
+        <div class="card-header"><h3 class="card-title">{{ journal.titre }}</h3></div>
+
+        <div class="card-body">
+        <h5 class="card-title">Texte:</h5>
+        <p class="card-text">{{ journal.contenu }}</p>
+        </div>
+
+        <div class="card-footer">
+            <small class="text-muted">{{ journal.date_creation }}</small>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="d-grid d-md-flex justify-content-md-center">
+        
+        <a class="btn btn-warning btn-lg" href="{% url 'modifier_journal' id=journal.id %}" style="margin:15px;">Modifier</a>
+        <a class="btn btn-dark btn-lg" href="{% url 'supprimer_journal' id=journal.id %}" style="margin:15px;">Supprimer</a>
+        
+    </div>
+
+</div>
+
+{% endblock %}
